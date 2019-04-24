@@ -38,9 +38,15 @@
       <h3>Basic david-form-task demo</h3>
       <demo-snippet>
         <template>
-          <david-form-task on-custom-event="printCaracola" label-text="Ola ke ase" button-text="Adios blancaflor"></david-form-task>
+          <david-form-task label-text="Ola ke ase" button-text="Adios blancaflor"></david-form-task>
         </template>
       </demo-snippet>
     </div>
+    <script>
+      let davidFormTask = document.querySelector('david-form-task');
+      davidFormTask.addEventListener('custom-event', () => {
+        console.log('Hello caraculo!');
+      })
+    </script>
   </body>
 </html>
