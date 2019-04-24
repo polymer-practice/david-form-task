@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>david-form-task demo</title>
+    <title>form-task demo</title>
 
     <script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 
     <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../david-form-task.html">
+    <link rel="import" href="../form-task.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
@@ -20,7 +20,7 @@
           --font-weight: 300;
           --font-size: 1em;
         }
-        david-form-task {
+        form-task {
           --task-button: {
             background-color: #000000;
             font-family: Lato, sans-serif;
@@ -35,18 +35,19 @@
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Basic david-form-task demo</h3>
+      <h3>Basic form-task demo</h3>
       <demo-snippet>
         <template>
-          <david-form-task label-text="Ola ke ase" button-text="Adios blancaflor"></david-form-task>
+          <form-task label-text="Ola ke ase" button-text="Adios blancaflor"></form-task>
         </template>
       </demo-snippet>
     </div>
     <script>
-      let davidFormTask = document.querySelector('david-form-task');
+      let davidFormTask = document.querySelector('form-task');
       let caracola = function(e) {
         console.log('Hello caraculo');
         console.log('Event detail', e.detail);
+        console.log('Target', e.target);
       };
       davidFormTask.addEventListener('custom-event', caracola, false);
     </script>

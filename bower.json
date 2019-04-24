@@ -1,6 +1,6 @@
 {
-  "name": "david-form-task",
-  "main": "david-form-task.html",
+  "name": "form-task",
+  "main": "form-task.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0"
   },
