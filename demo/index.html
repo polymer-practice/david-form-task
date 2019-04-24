@@ -44,9 +44,10 @@
     </div>
     <script>
       let davidFormTask = document.querySelector('david-form-task');
-      davidFormTask.addEventListener('custom-event', () => {
-        console.log('Hello caraculo!');
-      })
+      let caracola = function() {
+        console.log('Hello caraculo');
+      };
+      davidFormTask.addEventListener('custom-event', caracola, false);
     </script>
   </body>
 </html>
