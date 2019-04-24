@@ -62,7 +62,7 @@
     </style>
      <form class="task-form" on-submit="onSubmit">
       <label for="task-input" class="task-label">[[labelText]]</label>
-      <input type="text" name="task-input" class="task-input" value={{description:input}}>
+      <input type="text" name="task-input" class="task-input" value={{description::input}}>
       <button type="submit" class="task-button">[[buttonText]]</button>
       <p>[[description]]</p>
     </form>
