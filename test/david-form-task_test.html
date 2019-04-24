@@ -4,36 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>polymer-2 test</title>
+    <title>david-form-task test</title>
 
     <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../polymer-2.html">
+    <link rel="import" href="../david-form-task.html">
   </head>
   <body>
 
     <test-fixture id="BasicTestFixture">
       <template>
-        <polymer-2></polymer-2>
+        <david-form-task></david-form-task>
       </template>
     </test-fixture>
 
     <test-fixture id="ChangedPropertyTestFixture">
       <template>
-        <polymer-2 prop1="new-prop1"></polymer-2>
+        <david-form-task prop1="new-prop1"></david-form-task>
       </template>
     </test-fixture>
 
     <script>
-      suite('polymer-2', () => {
+      suite('david-form-task', () => {
 
         test('instantiating the element with default properties works', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'polymer-2');
+          assert.equal(element.prop1, 'david-form-task');
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello polymer-2!');
+          assert.equal(elementHeader.innerHTML, 'Hello david-form-task!');
         });
 
         test('setting a property on the element works', () => {
