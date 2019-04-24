@@ -53,12 +53,18 @@
         .task-input {
           margin: 5px;
         }
+        p {
+          color: white;
+          background-color: black;
+          width: 100%;
+        }
       }
     </style>
      <form class="task-form" on-submit="onSubmit">
       <label for="task-input" class="task-label">[[labelText]]</label>
-      <input type="text" name="task-input" class="task-input">
+      <input type="text" name="task-input" class="task-input" value={{description:input}}>
       <button type="submit" class="task-button">[[buttonText]]</button>
+      <p>[[description]]</p>
     </form>
   </template>
 
@@ -82,12 +88,19 @@
           labelText: {
             type: String,
             value: 'Label text'
+          },
+          description: {
+            type: String, 
+            value: "Placeholder"
           }
         };
       }
+      taskDescription(val) {
+        return val;
+      }
       onSubmit(e) {
         e.preventDefault();
-        console.log('Submiteando!')
+        console.log('Submiteando!');
         let customEvent = new CustomEvent('custom-event', {
           bubbles: true,
           composed: true,
