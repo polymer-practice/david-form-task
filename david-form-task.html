@@ -5,9 +5,41 @@
     <style>
       :host {
         display: block;
+        --primary-color: #3f51b5
+        --secondary-color: #ffffff;
+        --cut-point: 600px;
+        --elements-height: 35px;
+        font-size: 15px;
+        font-weight: 300;
+      }
+      form {
+        display: flex;
+      }
+      input[type="text"] {
+        border-radius: 2px;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: 1px solid lightgray;
+      }
+      input[type="text"]:focus, input[type="text"]:hover {
+        border-color: var(--primary-color);
+      }
+      button {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--primary-color);
+      }
+      label, input, button {
+        height: var(--elements-height);
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <form>
+      <label>Task description</label>
+      <input type="text" />
+      <button type="submit">Save task</button>
+    </form>
   </template>
 
   <script>
