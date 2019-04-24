@@ -58,7 +58,7 @@
      <form class="task-form">
       <label for="task-input" class="task-label">[[labelText]]</label>
       <input type="text" name="task-input" class="task-input">
-      <button type="submit" class="task-button">[[buttonText]]</button>
+      <button type="submit" class="task-button" on-click="onSubmit">[[buttonText]]</button>
     </form>
   </template>
 
@@ -84,6 +84,10 @@
             value: 'Label text'
           }
         };
+      }
+      onSubmit(e) {
+        e.preventDefault();
+        console.log('Submiteando!')
       }
     }
 
