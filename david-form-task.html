@@ -55,10 +55,10 @@
         }
       }
     </style>
-     <form class="task-form">
+     <form class="task-form" on-submit="onSubmit">
       <label for="task-input" class="task-label">[[labelText]]</label>
       <input type="text" name="task-input" class="task-input">
-      <button type="submit" class="task-button" on-click="onSubmit">[[buttonText]]</button>
+      <button type="submit" class="task-button">[[buttonText]]</button>
     </form>
   </template>
 
@@ -88,6 +88,18 @@
       onSubmit(e) {
         e.preventDefault();
         console.log('Submiteando!')
+        let customEvent = new CustomEvent('custom-event', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            extraInfo: 'This is a custom Event!!!!'
+          }
+        });
+        this.dispatchEvent(customEvent);
+      }
+      printCaracola(e) {
+        console.log(e);
+        console.log('Caracola!')
       }
     }
 
