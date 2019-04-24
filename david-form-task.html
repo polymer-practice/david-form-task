@@ -62,9 +62,8 @@
     </style>
      <form class="task-form" on-submit="onSubmit">
       <label for="task-input" class="task-label">[[labelText]]</label>
-      <input type="text" name="task-input" class="task-input" value={{description::input}}>
+      <input type="text" name="task-input" class="task-input" value={{_description::input}}>
       <button type="submit" class="task-button">[[buttonText]]</button>
-      <p>[[description]]</p>
     </form>
   </template>
 
@@ -89,7 +88,7 @@
             type: String,
             value: 'Label text'
           },
-          description: {
+          _description: {
             type: String, 
             value: "Placeholder"
           }
@@ -105,14 +104,10 @@
           bubbles: true,
           composed: true,
           detail: {
-            extraInfo: this.description
+            extraInfo: this._description
           }
         });
         this.dispatchEvent(customEvent);
-      }
-      printCaracola(e) {
-        console.log(e);
-        console.log('Caracola!')
       }
     }
 
