@@ -6,7 +6,7 @@
       :host {
         display: block;
         --primary-color: var(--primary-color-form-task, #011627);
-        --secondary-color: var(--secondary-color-task, #FDFFFC);
+        --secondary-color: var(--secondary-color-form-task, #FDFFFC);
         font-size: var(--font-size-form-task, 16px);
         font-weight: var(--font-weight-form-task, 300);
       }
@@ -18,27 +18,24 @@
       }
 
       .task-input {
-        @apply --default-input;
+        @apply --input-form-task;
       }
 
       .task-input:focus {
-        outline: none;
-        border: 3px solid var(--primary-color);
+        border-color: var(--primary-color);
+        @apply --input-focus-form-task;
       }
 
       .task-button {
         max-width: 75px;
         height: 38px;
         margin-left: auto;
-        background-color: var(--primary-color);
         border-radius: 4px;
         cursor: pointer;
-        color: #ffffff;
-        @apply --task-button;
+        @apply --button-form-task;
       }
 
       .task-button:hover {
-        border: 2px solid black;
         color: var(--primary-color);
         background-color: var(--secondary-color);
       }
@@ -52,12 +49,6 @@
 
         .task-input {
           margin: 5px;
-        }
-
-        p {
-          color: white;
-          background-color: black;
-          width: 100%;
         }
       }
     </style>
@@ -77,7 +68,7 @@
      * @polymer
      * @demo demo/index.html
      */
-    class DavidFormTask extends Polymer.Element {
+    class FormTask extends Polymer.Element {
       static get is() {
         return 'form-task';
       }
@@ -96,18 +87,17 @@
       }
       onSubmit(e) {
         e.preventDefault();
-        console.log('Submiteando!');
         let customEvent = new CustomEvent('custom-event', {
           bubbles: true,
           composed: true,
           detail: {
-            extraInfo: this._description
+            description: this._description
           }
         });
         this.dispatchEvent(customEvent);
       }
     }
 
-    window.customElements.define(DavidFormTask.is, DavidFormTask);
+    window.customElements.define(FormTask.is, FormTask);
   </script>
 </dom-module>
