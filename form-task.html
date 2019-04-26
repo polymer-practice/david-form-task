@@ -3,25 +3,29 @@
 <dom-module id="form-task">
   <template>
     <style>
-       :host {
+      :host {
         display: block;
         --primary-color: var(--primary-color-form-task, #011627);
         --secondary-color: var(--secondary-color-task, #FDFFFC);
         font-size: var(--font-size-form-task, 16px);
         font-weight: var(--font-weight-form-task, 300);
       }
+
       .task-form {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
       }
+
       .task-input {
         @apply --default-input;
       }
+
       .task-input:focus {
         outline: none;
         border: 3px solid var(--primary-color);
       }
+
       .task-button {
         max-width: 75px;
         height: 38px;
@@ -32,20 +36,24 @@
         color: #ffffff;
         @apply --task-button;
       }
+
       .task-button:hover {
         border: 2px solid black;
         color: var(--primary-color);
         background-color: var(--secondary-color);
       }
+
       @media (min-width: 600px) {
         .task-form {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
         }
+
         .task-input {
           margin: 5px;
         }
+
         p {
           color: white;
           background-color: black;
@@ -53,7 +61,7 @@
         }
       }
     </style>
-     <form class="task-form" on-submit="onSubmit">
+    <form class="task-form" on-submit="onSubmit">
       <label for="task-input" class="task-label">[[labelText]]</label>
       <input type="text" name="task-input" class="task-input" value={{_description::input}}>
       <button type="submit" class="task-button">[[buttonText]]</button>
@@ -70,7 +78,9 @@
      * @demo demo/index.html
      */
     class DavidFormTask extends Polymer.Element {
-      static get is() { return 'form-task'; }
+      static get is() {
+        return 'form-task';
+      }
       static get properties() {
         return {
           buttonText: {
@@ -82,11 +92,7 @@
             value: 'Label text'
           },
           _description: String
-          }
         };
-      }
-      taskDescription(val) {
-        return val;
       }
       onSubmit(e) {
         e.preventDefault();
