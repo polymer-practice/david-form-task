@@ -5,10 +5,10 @@
     <style>
        :host {
         display: block;
-        --primary-color: var(--primary-color-form-task, purple);
-        --secondary-color: var(--secondary-color, white);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
+        --primary-color: var(--primary-color-form-task, #011627);
+        --secondary-color: var(--secondary-color-task, #FDFFFC);
+        font-size: var(--font-size-form-task, 16px);
+        font-weight: var(--font-weight-form-task, 300);
       }
       .task-form {
         display: flex;
@@ -16,13 +16,7 @@
         flex-direction: column;
       }
       .task-input {
-        border: 1px solid #ccc;
-        height: 35px;
-        width: 100%;
-        margin: 5px 0px;
-        border-radius: 4px;
-        font-size: var(--font-size);
-        @apply --task-input
+        @apply --default-input;
       }
       .task-input:focus {
         outline: none;
@@ -34,7 +28,6 @@
         margin-left: auto;
         background-color: var(--primary-color);
         border-radius: 4px;
-        border: 1px solid #ccc;
         cursor: pointer;
         color: #ffffff;
         @apply --task-button;
@@ -88,9 +81,7 @@
             type: String,
             value: 'Label text'
           },
-          _description: {
-            type: String, 
-            value: "Placeholder"
+          _description: String
           }
         };
       }
