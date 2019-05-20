@@ -14,11 +14,14 @@
         align-items: center;
         display: inherit;
         flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
         overflow: hidden;
         padding: 1em;
         width: 100%;
+      }
+      .form-task > * {
+        margin: .2em auto;
       }
       .form-task__label {
         font-size: var(--default-font-size, 16px);
@@ -47,8 +50,13 @@
         padding: .5em;
         transition: background-color .2s ease;
       }
-      .form-task__label + .form-task__search {
-        margin-left: 1em;
+      @media screen and (min-width: 600px) {
+        .form-task {
+          flex-direction: row;
+        }
+        .form-task__label + .form-task__search {
+          margin-left: 1em;
+        }
       }
     </style>
     <form class="form-task" on-submit="_onSubmit">
