@@ -26,7 +26,7 @@
       .form-task__label {
         font-size: var(--font-size-form-task, 16px);
       }
-      .form-task__search {
+      .form-task__input {
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
@@ -54,15 +54,15 @@
         .form-task {
           flex-direction: row;
         }
-        .form-task__label + .form-task__search {
+        .form-task__label + .form-task__input {
           margin-left: 1em;
         }
       }
     </style>
     <form class="form-task" on-submit="_onSubmit">
-      <label class="form-task__label" for="todos-search">Search Todos</label>
-      <input class="form-task__search"type="text" name="todos-search" value="{{searchText::input}}" />
-      <input class="form-task__button"type="submit" value="Search" />
+      <label class="form-task__label" for="todos-search">Add Todo</label>
+      <input class="form-task__input"type="text" name="todos-search" value="{{taskTitle::input}}" />
+      <input class="form-task__button"type="submit" value="Add" />
     </form>
   </template>
 
@@ -79,7 +79,7 @@
       static get is() { return 'form-task'; }
       static get properties() {
         return {
-          searchText: {
+          taskTitle: {
             type: String,
             value: ""
           }
@@ -87,7 +87,7 @@
       }
       _onSubmit(e, data) {
         e.preventDefault();
-        console.log(this.searchText);
+        console.log(this.taskTitle);
       }
     }
 
