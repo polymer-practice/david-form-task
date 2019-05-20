@@ -4,15 +4,56 @@
   <template>
     <style>
       :host {
-        display: block;
+        background-color: var(--secondary-color, #7678ED);
+        color: var(--default-text-color, #FFFFFF);
+        display: flex;
       }
-
+      .form-task {
+        align-items: center;
+        display: inherit;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow: hidden;
+        padding: 1em;
+        width: 100%;
+      }
+      .form-task__label {
+        font-size: var(--default-font-size, 16px);
+      }
+      .form-task__search {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--secondary-color, #3D348B);
+        border: 3px solid var(--primary-color, #3D348B);
+        border-radius: 5px;
+        color: inherit;
+        padding: .5em;
+      }
+      .form-task__button {
+        align-self: flex-end;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--secondary-color, #3D348B);
+        border: 3px solid var(--primary-color, #3D348B);
+        border-radius: 5px;
+        color: inherit;
+        font-size: var(--default-font-size, 16px);
+        margin-left: auto;
+        padding: .5em;
+        transition: background-color .2s ease;
+      }
+      .form-task__label + .form-task__search {
+        margin-left: 1em;
+      }
     </style>
-    <form on-submit="_onSubmit">
-      <label for="todos-search">Search Todos<label>
-      <input type="text" name="todos-search" value="{{searchText::input}}"/>
-      <input type="submit" value="Search" />
-    <form>
+    <form class="form-task" on-submit="_onSubmit">
+      <label class="form-task__label" for="todos-search">Search Todos</label>
+      <input class="form-task__search"type="text" name="todos-search" value="{{searchText::input}}" />
+      <input class="form-task__button"type="submit" value="Search" />
+    </form>
   </template>
 
   <script>
