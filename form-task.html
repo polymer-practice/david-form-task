@@ -4,8 +4,8 @@
   <template>
     <style>
       :host {
-        background-color: var(--secondary-color, #7678ED);
-        color: var(--default-text-color, #FFFFFF);
+        background-color: var(--secondary-color-form-task, #7678ED);
+        color: var(--text-color-form-task, #FFFFFF);
         display: flex;
         width: 100%;
         max-height: fit-content;
@@ -24,28 +24,28 @@
         margin: .2em auto;
       }
       .form-task__label {
-        font-size: var(--default-font-size, 16px);
+        font-size: var(--font-size-form-task, 16px);
       }
       .form-task__search {
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        background-color: var(--primary-color, #3D348B);
-        border: 3px solid var(--primary-color, #3D348B);
+        background-color: var(--primary-color-form-task, #3D348B);
+        border: 3px solid var(--primary-color-form-task, #3D348B);
         border-radius: 5px;
         color: inherit;
-        font-size: var(--default-font-size, 16px);
+        font-size: var(--font-size-form-task 16px);
         padding: .5em;
       }
       .form-task__button {
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
-        background-color: var(--primary-color, #3D348B);
-        border: 3px solid var(--primary-color, #3D348B);
+        background-color: var(--primary-color-form-task, #3D348B);
+        border: 3px solid var(--primary-color-form-task, #3D348B);
         border-radius: 5px;
         color: inherit;
-        font-size: var(--default-font-size, 16px);
+        font-size: var(--font-size-form-task, 16px);
         margin-left: auto;
         padding: .5em;
         transition: background-color .2s ease;
