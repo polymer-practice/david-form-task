@@ -5,58 +5,14 @@
     <style>
       :host {
         display: block;
-        --primary-color: var(--primary-color-form-task, #011627);
-        --secondary-color: var(--secondary-color-form-task, #FDFFFC);
-        font-size: var(--font-size-form-task, 16px);
-        font-weight: var(--font-weight-form-task, 300);
       }
 
-      .task-form {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-      }
-
-      .task-input {
-        @apply --input-form-task;
-      }
-
-      .task-input:focus {
-        border-color: var(--primary-color);
-        @apply --input-focus-form-task;
-      }
-
-      .task-button {
-        max-width: 75px;
-        height: 38px;
-        margin-left: auto;
-        border-radius: 4px;
-        cursor: pointer;
-        @apply --button-form-task;
-      }
-
-      .task-button:hover {
-        color: var(--primary-color);
-        background-color: var(--secondary-color);
-      }
-
-      @media (min-width: 600px) {
-        .task-form {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .task-input {
-          margin: 5px;
-        }
-      }
     </style>
-    <form class="task-form" on-submit="onSubmit">
-      <label for="task-input" class="task-label">[[labelText]]</label>
-      <input type="text" name="task-input" class="task-input" value={{_description::input}}>
-      <button type="submit" class="task-button">[[buttonText]]</button>
-    </form>
+    <form on-submit="_onSubmit">
+      <label for="todos-search">Search Todos<label>
+      <input type="text" name="todos-search" value="{{searchText::input}}"/>
+      <input type="submit" value="Search" />
+    <form>
   </template>
 
   <script>
@@ -69,32 +25,18 @@
      * @demo demo/index.html
      */
     class FormTask extends Polymer.Element {
-      static get is() {
-        return 'form-task';
-      }
+      static get is() { return 'form-task'; }
       static get properties() {
         return {
-          buttonText: {
+          searchText: {
             type: String,
-            value: 'Button text'
-          },
-          labelText: {
-            type: String,
-            value: 'Label text'
-          },
-          _description: String
+            value: ""
+          }
         };
       }
-      onSubmit(e) {
+      _onSubmit(e, data) {
         e.preventDefault();
-        let customEvent = new CustomEvent('custom-event', {
-          bubbles: true,
-          composed: true,
-          detail: {
-            description: this._description
-          }
-        });
-        this.dispatchEvent(customEvent);
+        console.log(this.searchText);
       }
     }
 
